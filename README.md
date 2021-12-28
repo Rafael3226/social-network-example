@@ -16,7 +16,7 @@ You will also see any errors in the console.
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Compiles the app and then runs the bundle.\
 Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
 The page will NOT reload if you make edits.\
