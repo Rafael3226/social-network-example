@@ -1,5 +1,4 @@
-import { Schema, Document } from 'mongoose';
-import MongoConnection from '../mongodb';
+import mongoose, { Schema, Document } from 'mongoose';
 
 export interface IUser extends Document {
   name: string;
@@ -15,6 +14,6 @@ const UserSchema: Schema = new Schema({
   image: String,
 });
 
-const UserModel = MongoConnection.model('user', UserSchema);
+const UserModel = mongoose.connection.model('user', UserSchema);
 
 export default UserModel;

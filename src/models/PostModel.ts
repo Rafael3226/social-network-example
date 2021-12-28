@@ -1,5 +1,4 @@
-import { Schema, Document } from 'mongoose';
-import MongoConnection from '../mongodb';
+import mongoose, { Schema, Document } from 'mongoose';
 import { IUser } from './UserModel';
 
 export interface IPost extends Document {
@@ -20,6 +19,6 @@ const PostSchema: Schema = new Schema({
   comments: Array,
 });
 
-const PostModel = MongoConnection.model('post', PostSchema);
+const PostModel = mongoose.connection.model('post', PostSchema);
 
 export default PostModel;
