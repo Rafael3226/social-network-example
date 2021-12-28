@@ -10,7 +10,8 @@ class PostRoutes {
 
   config(): void {
     this.router.post('/create', PostController.create);
-    this.router.get('/read', PostController.read);
+    this.router.get('/list', PostController.list);
+    this.router.get('/get', PostController.getById);
     this.router.put('/update', PostController.update);
     this.router.delete('/delete', PostController.delete);
   }

@@ -10,7 +10,8 @@ class UserRoutes {
 
   config(): void {
     this.router.post('/create', UserController.create);
-    this.router.get('/read', UserController.read);
+    this.router.get('/list', UserController.list);
+    this.router.get('/get', UserController.getById);
     this.router.put('/update', UserController.update);
     this.router.delete('/delete', UserController.delete);
   }

@@ -1,12 +1,7 @@
 import mongoose from 'mongoose';
 import { env } from 'process';
 
-mongoose
-  .createConnection(env.MONGO_URL || '', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .catch((err: Error) => console.error(err));
+mongoose.connect(env.MONGO_URL || '');
 
 const MongoConnection = mongoose.connection;
 
