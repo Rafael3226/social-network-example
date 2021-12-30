@@ -1,12 +1,18 @@
 import { Request, Response } from 'express';
-import UserModel from '../models/UserModel';
+import UserModel, { IUser } from '../models/UserModel';
 
 class UserController {
   public static async create(req: Request, res: Response) {
     try {
+      let data, message;
       const { name, email, password, image } = req.body;
-      const user = await UserModel.create({ name, email, password, image });
-      res.send(user);
+      const sameEmail: IUser = await UserModel.findOne({ email });
+      if (sameEmail) {
+        message = 'The email already exists';
+      } else {
+        data = await UserModel.create({ name, email, password, image });
+      }
+      res.send({ data, message });
     } catch (e: any) {
       res.send({ message: e.message });
     }
@@ -53,10 +59,11 @@ class UserController {
   }
   public static async login(req: Request, res: Response) {
     try {
+      let data, message;
       const { email, password } = req.body;
       const user = await UserModel.findOne({ email });
-      const match = user.password === password;
-      res.send(match);
+      data = user.password === password;
+      res.send({ data, message });
     } catch (e: any) {
       res.send({ message: e.message });
     }
