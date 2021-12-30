@@ -9,11 +9,11 @@ import { env } from 'process';
 // Initialize Firebase
 initializeApp({
   apiKey: env.FIREBASE_KEY,
-  authDomain: 'onlinestore-dd493.firebaseapp.com',
-  projectId: 'onlinestore-dd493',
-  storageBucket: 'onlinestore-dd493.appspot.com',
-  messagingSenderId: '315093080873',
-  appId: '1:315093080873:web:2bfd222171152ca9a43538',
+  authDomain: 'social-network-4787e.firebaseapp.com',
+  projectId: 'social-network-4787e',
+  storageBucket: 'social-network-4787e.appspot.com',
+  messagingSenderId: '556596021960',
+  appId: '1:556596021960:web:db4c8d29b87ca48aeab3fd',
 });
 
 // Storage
