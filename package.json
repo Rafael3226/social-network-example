@@ -25,6 +25,7 @@
   "scripts": {
     "ts:node": "ts-node src/index.ts",
     "build": "tsc",
+    "deploy": "npm ci && tsc --project ./ && node build/src",
     "clean": "del build",
     "start": "tsc --project ./ && node build/src",
     "dev": "nodemon"
