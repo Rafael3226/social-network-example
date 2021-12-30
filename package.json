@@ -25,9 +25,11 @@
   "scripts": {
     "ts:node": "ts-node src/index.ts",
     "tsc": "tsc",
-    "deploy": "npm install typescript --save-dev && npm ci && npm run start",
+    "deploy": "node build/src",
     "clean": "del build",
     "start": "tsc --project ./ && node build/src",
+    "build": "tsc --project ./",
+    "postinstall": "npm run build",
     "dev": "nodemon"
   }
 }
