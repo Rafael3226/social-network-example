@@ -30,10 +30,7 @@ class UserController {
   }
   public static async update(req: Request, res: Response) {
     try {
-      const {
-        query: { id },
-        body: { name, email, password, image },
-      } = req;
+      const { id, name, email, password, image } = req.body;
       const user = await UserModel.findByIdAndUpdate(id, {
         name,
         email,
@@ -50,6 +47,16 @@ class UserController {
       const { id } = req.query;
       const user = await UserModel.findByIdAndDelete(id);
       res.send(user);
+    } catch (e: any) {
+      res.send({ message: e.message });
+    }
+  }
+  public static async login(req: Request, res: Response) {
+    try {
+      const { email, password } = req.body;
+      const user = await UserModel.findOne({ email });
+      const match = user.password === password;
+      res.send(match);
     } catch (e: any) {
       res.send({ message: e.message });
     }

@@ -6,6 +6,7 @@ import PostRouter from './routes/PostRoute';
 import UserRouter from './routes/UserRoute';
 import setUpMongo from './mongo';
 import ImageRouter from './routes/ImageRoute';
+import KeyRouter from './routes/KeyRoute';
 
 // Initialization
 const app = express();
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/post', PostRouter);
 app.use('/user', UserRouter);
 app.use('/image', ImageRouter);
+app.use('/keys', KeyRouter);
 
 // Starting the erver
 app.listen(app.get('port'), () => {
