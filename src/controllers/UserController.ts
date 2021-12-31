@@ -62,7 +62,9 @@ class UserController {
       let data, message;
       const { email, password } = req.body;
       const user = await UserModel.findOne({ email });
-      data = user.password === password;
+      if (user.password === password) {
+        data = user;
+      }
       res.send({ data, message });
     } catch (e: any) {
       res.send({ message: e.message });
