@@ -36,13 +36,17 @@ class UserController {
   }
   public static async update(req: Request, res: Response) {
     try {
-      const { id, name, email, password, image } = req.body;
-      const user = await UserModel.findByIdAndUpdate(id, {
-        name,
-        email,
-        password,
-        image,
-      });
+      const { _id, name, email, password, image } = req.body;
+      const user = await UserModel.findByIdAndUpdate(
+        _id,
+        {
+          name,
+          email,
+          password,
+          image,
+        },
+        { useFindAndModify: true }
+      );
       res.send(user);
     } catch (e: any) {
       res.send({ message: e.message });

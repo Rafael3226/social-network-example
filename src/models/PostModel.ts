@@ -12,12 +12,15 @@ export interface IComment {
   description: string;
 }
 
-const PostSchema: Schema = new Schema({
-  user: Object,
-  description: String,
-  likes: Array,
-  comments: Array,
-});
+const PostSchema: Schema = new Schema(
+  {
+    user: Object,
+    description: String,
+    likes: Array,
+    comments: Array,
+  },
+  { timestamps: true }
+);
 
 const PostModel = mongoose.connection.model('post', PostSchema);
 
