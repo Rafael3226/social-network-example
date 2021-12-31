@@ -27,7 +27,7 @@ class PostController {
   }
   public static async list(req: Request, res: Response) {
     try {
-      const post = await PostModel.find();
+      const post = await PostModel.find().sort({ createdAt: 'desc' });
       res.send(post);
     } catch (e: any) {
       res.send({ message: e.message });
@@ -36,7 +36,9 @@ class PostController {
   public static async feed(req: Request, res: Response) {
     try {
       const { _id } = req.query;
-      const post = await PostModel.find({ 'user._id': _id });
+      const post = await PostModel.find({ 'user._id': _id }).sort({
+        createdAt: 'desc',
+      });
       res.send(post);
     } catch (e: any) {
       res.send({ message: e.message });
